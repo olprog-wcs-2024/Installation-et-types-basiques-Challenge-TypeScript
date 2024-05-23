@@ -1,5 +1,9 @@
 "use strict";
 // challenge.ts
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
 ;
 const prettyPrintWilder = (users) => {
     return users.map((user) => {
@@ -34,3 +38,22 @@ person1.tellMyName();
 person1.tellMyAge();
 person2.tellMyName();
 person2.tellMyAge();
+// POO en TS 2 - Encapsulation
+const assert_1 = __importDefault(require("assert"));
+class BankCustomer {
+    constructor(name, code) {
+        this.name = name;
+        this.code = code;
+    }
+    getName() {
+        return this.name;
+    }
+    verifyPinInput(code) {
+        return this.code === code;
+    }
+}
+const customer = new BankCustomer('John Doe', '3579');
+assert_1.default.equal(typeof customer.getName, 'function');
+assert_1.default.equal(typeof customer.verifyPinInput, 'function');
+assert_1.default.equal(customer.getName(), 'John Doe');
+assert_1.default.ok(customer.verifyPinInput('3579'));

@@ -70,7 +70,7 @@ const prettyPrintWilder = (users : Users[]) : string[] => {
     }
 
     verifyPinInput(code: string) {
-      assert.equal(code, this.code);
+      return this.code === code;
     }
 
 
